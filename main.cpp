@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    vector<int> enteros;
+    vector<string> cadenas;
     string op;
 
     while (true)
@@ -22,63 +22,63 @@ int main() {
         cout << "0) Salir" << endl;
         getline(cin, op);
         if (op == "1") {
-            int entero;
+            string cadena;
 
-            cout << "entero: ";
-            cin >> entero; cin.ignore();
+            cout << "Cadena: ";
+            getline(cin, cadena); //cin.ignore();
 
-            enteros.push_back(entero);
+            cadenas.push_back(cadena);
         }
-        else if (op == "2") {
-            for (size_t i = 0; i < enteros.size(); i++) {
-                cout << enteros[i] << ", ";
+       else if (op == "2") {
+            for (size_t i = 0; i < cadenas.size(); i++) {
+                cout << cadenas[i] << ", ";
             }
             cout << endl;
         }
         else if (op == "3"){
             size_t n;
-            int entero;
+            string cadena;
 
             cout << "Tam: ";
-            cin >> n;
-            cout << "entero: ";
-            cin >> entero; cin.ignore();
+            cin >> n; cin.ignore();
+            cout << "cadena: ";
+            getline(cin, cadena);  
             
-            enteros = vector<int>(n, entero);
+            cadenas = vector<string>(n, cadena);
         }
         else if(op == "4"){
-            if (enteros.empty()){
+            if (cadenas.empty()){
                 cout << "Vector esta vacío" << endl;;
             }
             else{
-                cout << enteros.front() << endl;
+                cout << cadenas.front() << endl;
             }
         }
         else if(op == "5"){
-            if (enteros.empty()){
+            if (cadenas.empty()){
                 cout << "Vector esta vacío" << endl;
             }
             else{
-                cout << enteros.back() << endl;
+                cout << cadenas.back() << endl;
             }
         }
         else if(op == "6"){
-            //sort(enteros.begin(), enteros.end());
-            sort(enteros.begin(), enteros.end(), greater<int>());
+            sort(cadenas.begin(), cadenas.end());
+            //sort(cadenas.begin(), cadenas.end(), greater<string>());
         }
         else if(op == "7"){
             size_t p;
-            int entero;
+            string cadena;
 
             cout << "Posicion: ";
-            cin >> p;
-            cout << "Entero: ";
-            cin >> entero; cin.ignore();
-            if(p == enteros.size()){
+            cin >> p; cin.ignore();
+            cout << "Cadena: ";
+            getline(cin, cadena);
+            if(p == cadenas.size()){
                 cout << "posición no válida" << endl;
             }
             else{
-                enteros.insert(enteros.begin()+p, entero);
+                cadenas.insert(cadenas.begin()+p, cadena);
             }
         }
         else if(op == "8"){
@@ -87,24 +87,27 @@ int main() {
             cout <<"Posicion: ";
             cin >> p; cin.ignore();
 
-            if(p >= enteros.size()){
+            if(p >= cadenas.size()){
                 cout << "posición no válida" << endl;
             }
             else{
-                enteros.erase(enteros.begin()+p);
+                cadenas.erase(cadenas.begin()+p);
             }
 
         }
         else if(op == "9"){
-            if(enteros.empty()){
+            if(cadenas.empty()){
                 cout << "Vector esta vácio" << endl;
             }
             else{
-                enteros.pop_back();
+                cadenas.pop_back();
             }
         }
         else if (op == "0") {
             break;
+        }
+        else{
+            cout <<"No se encuentra en el meno" << endl;
         }
     }
 
